@@ -8,7 +8,7 @@ $numeros=[
     9 => "quinto",
     11 => "sexto",
 ];
-$posicion=0;
+$posicion=1;
 $suma=0;
 foreach ($numeros as $numero => $nombre) {
     if ($posicion % 2 == 0) {
@@ -23,14 +23,12 @@ foreach ($numeros as $numero => $nombre) {
     $suma=$suma+$numero;
     echo '<br>'.'La suma es '.$suma.'<br>';
 
-    if ($suma > 5){
-        echo 'El valor de la suma es mayor que 5'.'<br>';
-    }
-    if ($suma > 10){
-        echo 'El valor de la suma es mayor que 10'.'<br>';
-    }
     if ($suma > 20){
         echo 'El valor de la suma es mayor que 20'.'<br>';
+    }elseif ($suma > 10){
+        echo 'El valor de la suma es mayor que 10'.'<br>';
+    }elseif ($suma > 5){
+        echo 'El valor de la suma es mayor que 5'.'<br>';
     }
     $posicion++;
 }
