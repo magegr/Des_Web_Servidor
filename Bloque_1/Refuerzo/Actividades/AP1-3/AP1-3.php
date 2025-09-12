@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);//definir los tipos
 $numeros=[];
 $numeros=[
     1 => "primero",
@@ -8,8 +9,10 @@ $numeros=[
     9 => "quinto",
     11 => "sexto",
 ];
-$posicion=1;
-$suma=0;
+(bool)$impar=false;
+(bool)$impar=true;
+(int)$posicion=1;
+(int)$suma=0;
 foreach ($numeros as $numero => $nombre) {
     if ($posicion % 2 == 0) {
         echo 'Estas en una posición par';
@@ -32,4 +35,3 @@ foreach ($numeros as $numero => $nombre) {
     }
     $posicion++;
 }
-?>
