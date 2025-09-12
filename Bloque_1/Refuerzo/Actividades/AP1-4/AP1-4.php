@@ -20,41 +20,38 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $figura = $_POST['figura'];
+
+    function calcularAreaTriangulo($base, $altura)
+    {
+        $areaTriangulo = ($base * $altura) / 2;
+        return $areaTriangulo;
+    }
+    function calcularAreaRectangulo($base, $altura)
+    {
+        $areaRectangulo = $base * $altura;
+        return $areaRectangulo;
+    }
+    function calcularAreaCirculo($radio)
+    {
+        $pi = 3.14;
+        $areaCirculo = $pi * $radio;
+        return $areaCirculo;
+    }
     switch ($figura) {
-        case $_POST['triangulo']:
+        case 'triangulo':
         {
-            function calcularAreaTriangulo($base, $altura)
-            {
-                $areaTriangulo = ($base * $altura) / 2;
-                return $areaTriangulo;
-            }
-
-            echo 'El area del triangulo es'.$areaTriangulo. '<br>';
+            echo 'El area del triangulo es'.calcularAreaTriangulo($_POST['base'], $_POST['altura']). '<br>';
             break;
         }
-        case $_POST['rectangulo']:
+        case 'rectangulo':
         {
-            function calcularAreaRectangulo($base, $altura)
-            {
-                $areaRectangulo = $base * $altura;
-                return $areaRectangulo;
-            }
-
-            echo 'El area del rectangulo es'. $areaRectangulo . '<br>';
+            echo 'El area del rectangulo es'.calcularAreaRectangulo($_POST['base'], $_POST['altura']) . '<br>';
             break;
         }
-        case $_POST['circulo']:
+        case 'circulo':
         {
-            function calcularAreaCirculo($radio)
-            {
-                $pi = 3.14;
-                $areaCirculo = $pi * $radio;
-                return $areaCirculo;
-            }
-
-            echo 'El area del circulo es' .$areaCirculo . '<br>';
+            echo 'El area del circulo es' .calcularAreaCirculo($_POST['radio']) . '<br>';
             break;
         }
     }
 }
-?>
