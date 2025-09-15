@@ -13,6 +13,12 @@
             <option value="circulo">Círculo</option>
         </select>
         <label for="figura">Añade unidades de medida</label>
+        <label>Base:</label>
+        <input type="number" name="base"><br>
+        <label>Altura:</label>
+        <input type="number" name="altura"><br>
+        <label>Radio:</label>
+        <input type="number" name="radio"><br>
         <input type="submit" value="Calcular">
     </form>
 </body>
@@ -55,3 +61,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
