@@ -10,6 +10,10 @@ class cocheF1 extends VehiculoCarrera{
         parent::__construct($marca, $modelo, $velocidad, $combustible);//dentro del costruct añadimos el construct padre
         $this->alerones = $alerones;//Luego ya podemos declarar
     }
+    public function mostrarEstado() {
+        parent::mostrarEstado();
+        echo " , tiene {$this->alerones} alerones";
+    }
     public function activarDRS(){
         echo "El DRS del coche $this->marca y $this->modelo ha sido activado , la velocidad aumentara temporalmente";
     }

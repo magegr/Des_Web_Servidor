@@ -7,6 +7,10 @@ class cocheElectricoF1 extends cocheF1{
         parent:: __construct($marca, $modelo, $velocidad, $combustible,$alerones);
         $this->bateria = $bateria;
     }
+    public function mostrarEstado() {
+        parent::mostrarEstado();
+        echo " , tiene {$this->alerones} alerones y una batería de {$this->bateria}%";
+    }
     public function recargar(){
         echo "El coche se esta cargando";
     }

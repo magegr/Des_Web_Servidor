@@ -22,7 +22,6 @@ class VehiculoCarrera
         }elseif($totalCombustible < 0){
             $this->detener();
         }
-
     }
     //Método arranca el coche
     public function arrancar(){
@@ -39,10 +38,10 @@ class VehiculoCarrera
     }
     //Método mostrar el coche
     public function mostrarEstado(){
-        echo "El estado actual del coche es {$this->modelo}{$this->marca}{$this->velocidad}{$this->combustible}";
+        echo "El estado actual del coche {$this->marca} {$this->modelo}, tiene una velocidad de {$this->velocidad}, el combustible esta al {$this->combustible}";
     }
     public function __destruct()
     {
-        echo "El coche {$this->modelo} se ha retirado de la carrera";
+        echo "<br>"."El coche {$this->modelo} se ha retirado de la carrera";
     }
 }
