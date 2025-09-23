@@ -40,7 +40,7 @@ class VehiculoCarrera
     public function mostrarEstado(){
         echo "El estado actual del coche {$this->marca} {$this->modelo}, tiene una velocidad de {$this->velocidad}, el combustible esta al {$this->combustible}";
     }
-    public function __destruct()
+    public function __destruct() //se ejecuta despues de todo
     {
         echo "<br>"."El coche {$this->modelo} se ha retirado de la carrera";
     }
