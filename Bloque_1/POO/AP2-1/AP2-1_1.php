@@ -1,5 +1,5 @@
 <?php
-require_once ('AP2-1.php');
+require_once('AP2-1.php');
 //Usamos extends para indicar de donde es hija
 class cocheF1 extends VehiculoCarrera{
 
