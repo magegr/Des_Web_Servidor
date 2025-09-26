@@ -11,12 +11,14 @@ class connection
     // Constructor: abre conexión
     public function __construct() { //cuando llamas al new realmente estas llamando al construct
         // Se crea la conexión a la base de datos
-        $this->conn = new mysqli(self::host, self::username, self::password, self::database);
+        try {
+            $this->conn = new mysqli(self::host, self::username, self::password, self::database);
+            echo"Conexion exitosa";
+        }catch (mysqli_sql_exception $e){
         // Verificamos si hubo un error en la conexión
-        if ($this->conn->connect_error) {
-            die("Error de conexión: " . $this->conn->connect_error);
+            die("Error de conexión: ". $e->getMessage(). $e->getLine());
+           echo "Conexión exitosa<br>";
         }
-        echo "Conexión exitosa<br>";
     }
 
     // Método para leer todos los usuarios
