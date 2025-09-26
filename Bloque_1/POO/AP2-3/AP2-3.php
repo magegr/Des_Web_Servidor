@@ -5,10 +5,10 @@ class DatabaseConnection {
 
     //permite que nadie pueda acceder al construct / crea y configura
     private function __construct($host, $user, $password, $dbname) {
-        $this->connection = new mysqli($host, $user, $password, $dbname);
-
-        if ($this->connection->connect_error) {
-            die("Error de conexión: " . $this->connection->connect_error);
+        try {
+            $this->connection = new mysqli($host, $user, $password, $dbname);
+        }catch (mysqli_sql_exception $e){
+            die("Error de conexión: " . $e->getMessage().$e->getLine());
         }
     }
     //si ya hay una instancia nada y de no ser asi llama al constructor de arriba
