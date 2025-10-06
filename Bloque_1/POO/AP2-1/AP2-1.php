@@ -34,6 +34,7 @@ class VehiculoCarrera
     }
     //Método detener el coche
     public function detener(){
+        $this->velocidad=0;
         echo "El coche $this->marca y $this->modelo ha sido detener";
     }
     //Método mostrar el coche
