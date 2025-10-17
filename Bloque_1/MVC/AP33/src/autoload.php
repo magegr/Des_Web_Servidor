@@ -7,7 +7,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $rutaActual);
 
 function autoload(string $rutaclase)
 {
-    //Remplazamos App( en este caso AP33 por ser la AP3-3) por "" y \ por /
+    //Remplazamos App( en este caso AP33 por ser la AP33) por "" y \ por /
     $rutaclase = str_replace(["AP33\\", "\\"], ["", "/"], $rutaclase);
     //Le añadimos la extensión al archivo
     $rutaclase .= ".php";

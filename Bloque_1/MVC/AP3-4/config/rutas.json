@@ -1,0 +1,26 @@
+{
+  "main": {
+    "controller": "MainController",
+    "action": "main"
+  },
+  "detalle": {
+    "controller": "DetalleController",
+    "action": "detail"
+  },
+  "default": {
+    "controller": "MainController",
+    "action": "default"
+  },
+  "addTask": {
+    "controller": "MainController",
+    "action": "AddTask"
+  },
+  "saveTask": {
+    "controller": "MainController",
+    "action": "saveTask"
+  },
+  "deleteTask": {
+    "controller": "MainController",
+    "action": "deleteTask"
+  }
+}
