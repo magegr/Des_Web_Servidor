@@ -12,10 +12,5 @@ class Tarea
         $this->conn = $db->getConexion();//devueklve la conexion
     }
 
-    public function getTareas()
-    { //sacamos la info hacemos consultas
-        $sql = "SELECT * FROM tareas";
-        $result = $this->conn->query($sql);
-        return $result;
-    }
+    c
 }

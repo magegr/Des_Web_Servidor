@@ -1,6 +1,6 @@
 <?php
 
-//Me he creado el metodo para cconectarme , pero nop he hecho ninguna conexion , eso lo hace el model
+//Me he creado el metodo para cconectarme , pero nop he hecho ninguna conexion , eso lo hace el tareas
 class DatabaseConnection
 {//se crea 1 sola vez y se usa esa
     private $dbConfig;
