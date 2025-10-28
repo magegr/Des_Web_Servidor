@@ -19,7 +19,7 @@
     <tr>
         <td><?= htmlspecialchars($user->getId()) ?></td>
         <td><?= htmlspecialchars($user->getName()) ?></td>
-        <td><?= htmlspecialchars($user->isEstado()) ?></td>
+        <td><?= htmlspecialchars($user->isEstado() ? 'Activado' : 'Desactivado') ?></td>
     </tr>
     <?php endforeach; ?>
 </table>
