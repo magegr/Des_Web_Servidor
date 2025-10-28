@@ -23,8 +23,8 @@ class Operation
     #[Column(name: 'id', type: 'integer')]
     private int $id;
 
-    #[Column(name: 'resultado', type: 'integer')]
-    private int $result;
+    #[Column(name: 'resultado', type: 'decimal')]
+    private float $result;
 
     #[ManyToOne(targetEntity: User::class, inversedBy: 'operaciones')]
     #[JoinColumn(name: 'usuario', referencedColumnName: 'id')]
@@ -45,14 +45,15 @@ class Operation
         $this->usuario = $user;
     }
 
-    public function getResult(): int
+    public function getResult(): float
     {
         return $this->result;
     }
 
-    public function setResult(int $result): void
+    public function setResult(float $result): void
     {
         $this->result = $result;
     }
+
 
 }
