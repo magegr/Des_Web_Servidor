@@ -27,9 +27,10 @@ class User
     #[Column(name: 'nombre', type: 'string', length: 255)]
     private string $name;
 
+//cuando ponga tinyint(1) ponemos bool
+    #[Column(name: 'estado', type: 'boolean')]
+    private bool $estado;
 
-    #[Column(name: 'estado', type: 'integer')]
-    private int $estado;
 
     #[OneToMany(mappedBy: 'usuario', targetEntity: Operation::class)]
     private Collection $operations;
@@ -54,13 +55,15 @@ class User
         $this->name = $name;
     }
 
-    public function getEstado(): int
+    //cuando ponga tinyint(1) ponemos bool
+    public function isEstado(): bool
     {
         return $this->estado;
     }
 
-    public function setEstado(int $estado): void
+    public function setEstado(bool $estado): void
     {
         $this->estado = $estado;
     }
+
 }
