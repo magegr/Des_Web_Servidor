@@ -21,9 +21,9 @@ class Task
     #[Column(name: 'id', type: 'integer')]
     private int $id;
 
-    #[Column(name: 'titulo', type: 'string')]
+    #[Column(name: 'titulo', type: 'string', length: '255')]
     private string $title;
-    #[Column(name: 'descripcion', type: 'string')]
+    #[Column(name: 'descripcion', type: 'string', length: '255')]
     private string $description;
 
     #[Column(name: 'fecha_creacion', type: 'date')]
