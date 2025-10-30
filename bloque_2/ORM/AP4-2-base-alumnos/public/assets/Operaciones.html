@@ -10,15 +10,16 @@
 <body>
 <table border="1">
     <tr>
-        <td>Título</td>
-        <td>Descripción</td>
-        <td>Fecha de Creación</td>
+        <td>Id</td>
+        <td>Resultado</td>
+        <td>Usuario</td>
     </tr>
     <?php foreach ($Operation as $Info): ?>
     <tr>
         <td><?= htmlspecialchars($Info->getId()) ?></td>
         <td><?= htmlspecialchars($Info->getResult()) ?></td>
-        <td><?= htmlspecialchars($Info->getResult()) ?></td>
+        <td><?= $Info->getUser()->getName() ?></td>
+        <!--Como getUser es un objeto de User.php tenemos que llamar a la funcion getName()que esta en User.php -->
     </tr>
     <?php endforeach; ?>
 </table>

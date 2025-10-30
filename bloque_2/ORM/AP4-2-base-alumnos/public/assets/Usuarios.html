@@ -13,6 +13,7 @@
         <td>Id</td>
         <td>Nombre</td>
         <td>Estado</td>
+        <td>Operaciones</td>
     </tr>
     <!--$User no me sirve porque en el controller hemos hecho esto $User = $UserRepository->findAll() , esto devuelve un array de objetos y -->
     <?php foreach ($User as $user): ?>
@@ -20,6 +21,12 @@
         <td><?= htmlspecialchars($user->getId()) ?></td>
         <td><?= htmlspecialchars($user->getName()) ?></td>
         <td><?= htmlspecialchars($user->isEstado() ? 'Activado' : 'Desactivado') ?></td>
+        <td>
+            <?php  $operations = $user->getOperations();?><!--Le asigno a la variable todoss los datos de Operation-->
+            <?php foreach ($operations as $operation): ?><!--Operation  es una instancia de Operation.php-->
+            <?= htmlspecialchars($operation->getResult()) ?><!-- GetResult esta en el entity Operation-->
+            <?php endforeach; ?>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

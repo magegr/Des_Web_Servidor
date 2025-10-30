@@ -3,7 +3,7 @@
 namespace AP42\Views;
 
 use AP42\Entity\Operation;
-use AP42\Entity\User;
+
 
 class ListadoOperaciones
 {

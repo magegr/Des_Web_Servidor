@@ -66,4 +66,8 @@ class User
         $this->estado = $estado;
     }
 
+    public function getOperations(): Collection
+    {
+        return $this->operations;
+    }
 }

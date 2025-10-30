@@ -27,20 +27,20 @@ class Operation
     private float $result;
 
     #[ManyToOne(targetEntity: User::class, inversedBy: 'operaciones')]
-    #[JoinColumn(name: 'usuario', referencedColumnName: 'id')]
-    private ?User $usuario = null;
+    #[JoinColumn(name: 'usuario', referencedColumnName: 'id', nullable: false)]
+    private User $usuario; //User es un objeto
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->usuario;
     }
 
-    public function setUser(?User $user): void
+    public function setUser(User $user): void
     {
         $this->usuario = $user;
     }

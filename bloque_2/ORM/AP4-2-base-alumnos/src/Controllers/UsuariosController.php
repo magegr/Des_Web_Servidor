@@ -16,5 +16,6 @@ class UsuariosController
         $User = $UserRepository->findAll();
         $view = new ListadoUsuarios();
         $view->render($User);
+
     }
 }
