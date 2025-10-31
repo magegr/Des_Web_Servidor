@@ -23,7 +23,7 @@ class Operation
     #[Column(name: 'id', type: 'integer')]
     private int $id;
 
-    #[Column(name: 'resultado', type: 'decimal')]
+    #[Column(name: 'resultado', type: 'decimal', scale: 10, precision: 2)]
     private float $result;
 
     #[ManyToOne(targetEntity: User::class, inversedBy: 'operaciones')]

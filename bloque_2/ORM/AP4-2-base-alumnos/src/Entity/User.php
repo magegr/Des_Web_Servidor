@@ -66,7 +66,7 @@ class User
         $this->estado = $estado;
     }
 
-    public function getOperations(): Collection
+    public function getOperations(): Collection //es un array de objeto de operations.php
     {
         return $this->operations;
     }

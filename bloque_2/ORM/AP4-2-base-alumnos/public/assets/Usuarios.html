@@ -24,7 +24,8 @@
         <td>
             <?php  $operations = $user->getOperations();?><!--Le asigno a la variable todoss los datos de Operation-->
             <?php foreach ($operations as $operation): ?><!--Operation  es una instancia de Operation.php-->
-            <?= htmlspecialchars($operation->getResult()) ?><!-- GetResult esta en el entity Operation-->
+            <?= htmlspecialchars($operation->getResult(). '') ?>
+            <!-- GetResult esta en el entity Operation  , poner el espacio àra que no salgan todos los datos a piñon-->
             <?php endforeach; ?>
         </td>
     </tr>
