@@ -26,7 +26,7 @@ class Operation
     #[Column(name: 'resultado', type: 'decimal', scale: 10, precision: 2)]
     private float $result;
 
-    #[ManyToOne(targetEntity: User::class, inversedBy: 'operaciones')]
+    #[ManyToOne(targetEntity: User::class, inversedBy: 'operations')]
     #[JoinColumn(name: 'usuario', referencedColumnName: 'id', nullable: false)]
     private User $usuario; //User es un objeto
 

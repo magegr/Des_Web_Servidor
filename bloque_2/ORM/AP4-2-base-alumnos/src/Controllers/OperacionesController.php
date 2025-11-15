@@ -18,8 +18,8 @@ class OperacionesController
 
         $entityManager = new EntityManager();
         $OperationRepository = $entityManager->getEntityManager()->getRepository(Operation::class);
-        $Operation = $OperationRepository->findAll();
+        $Operations = $OperationRepository->findAll();
         $view = new listadoOperaciones();
-        $view->render($Operation);
+        $view->render($Operations);
     }
 }

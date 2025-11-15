@@ -24,9 +24,6 @@ class User
     private int $id;
 
 
-    #[Column(name: 'nombre', type: 'string', length: 255)]
-    private string $name;
-
 //cuando ponga tinyint(1) ponemos bool
     #[Column(name: 'estado', type: 'boolean')]
     private bool $estado;
