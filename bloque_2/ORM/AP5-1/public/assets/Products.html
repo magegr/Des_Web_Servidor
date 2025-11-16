@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="/">Inicio</a>
+        </li>
+        <li>
+            <a href="/clientes">Clientes</a>
+        </li>
+        <li>
+            <a href="/pedidos">Pedidos</a>
+        </li>
+        <li>
+            <a href="/productos">Productos</a>
+        </li>
+    </ul>
+</nav>
+<table STYLE="border: 1px solid black;">
+    <tr>
+        <td>NUMERO DE PEDIDO</td>
+        <td>ID PRODUCTO</td>
+        <td>DESCRIPCION</td>
+    </tr>
+    <?php foreach ($products as $product){ ?>
+    <tr>
+        <td><?=$product->getId()?></td>
+        <td>
+            <?php foreach ($product->getDetails() as $detail){ ?> //Lo hacemos asi porque viene de una coleccion y esta
+            en lo de findall
+            <?=$detail->getId()?>
+            <?php } ?>
+        </td>
+        <td><?=$product->getDescription()?></td>
+
+    </tr>
+    <?php } ?>
+</table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado Cliente</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="/">Inicio</a>
+        </li>
+        <li>
+            <a href="/clientes">Clientes</a>
+        </li>
+        <li>
+            <a href="/pedidos">Pedidos</a>
+        </li>
+        <li>
+            <a href="/productos">Productos</a>
+        </li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <td>CODIGO CLIENTE</td>
+        <td>NOMBRE</td>
+        <td>DIRECCION</td>
+        <td>CIUDAD</td>
+        <td>ESTADO</td>
+        <td>CODIGO POSTAL</td>
+        <td>AREA</td>
+        <td>TELEFONO</td>
+        <td>CODIGO REPRESENTANTE</td>
+        <td>LIMITE CREDITO</td>
+        <td>OBSERVACIONES</td>
+    </tr>
+    <?php foreach ($Customer as $info){ ?><!--customer viene del nombre que le paso en la view que a su vez viene del controller-->
+    <tr>
+        <td><?=$info->getid()?></td>
+        <td><?= htmlspecialchars($info->getName())?></td>
+        <td><?= htmlspecialchars($info->getAddress())?></td>
+        <td><?= htmlspecialchars($info->getCity())?></td>
+        <td><?= htmlspecialchars($info->getState())?></td>
+        <td><?= htmlspecialchars($info->getPostalCode())?></td>
+        <td><?= $info->getArea()?></td>
+        <td><?= htmlspecialchars($info->getPhone())?></td>
+        <td><?=$info?->getRepresentative()?></td>
+        <td><?=$info->getLimitCredito()?></td>
+        <td><?= htmlspecialchars($info->getObservations())?></td>
+    </tr>
+    <?php } ?>
+</table>
+</body>
+</html>
+</body>
+</html>

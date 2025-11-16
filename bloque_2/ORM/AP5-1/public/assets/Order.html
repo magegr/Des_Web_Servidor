@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pedidos</title>
+</head>
+<body>
+<nav>
+    <ul>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            <li>
+                <a href="/clientes">Clientes</a>
+            </li>
+            <li>
+                <a href="/pedidos">Pedidos</a>
+            </li>
+            <li>
+                <a href="/productos">Productos</a>
+            </li>
+    </ul>
+</nav>
+
+<table>
+    <tr>
+        <td>CODIGO PEDIDO</td>
+        <td>FECHA PEDIDO</td>
+        <td>TIPO DE PEDIDO</td>
+        <td>CODDIGO CLIENTE</td>
+        <td>FECHA ENVIO</td>
+        <td>TOTAL</td>
+
+    </tr>
+    <?php foreach ($Order as $info){ ?>
+    <tr>
+        <td><a href="/pedido/read/<?php echo $info->getId()?>"><?=$info->getId()?></a></td>
+        <td><?=$info->getDate()->format('Y-m-d')?></td>
+        <td><?=$info?->getType()?></td>
+        <td><?=$info->getClient()?->getId()?></td>
+        <td><?= $info->getDateEnvio()->format('Y-m-d')?></td>
+        <td><?=$info->getTotal()?></td>
+    </tr>
+    <?php } ?>
+
+
+</body>
+</html>
