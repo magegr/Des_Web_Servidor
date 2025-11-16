@@ -2,9 +2,9 @@
 
 namespace AP52\Repository;
 
-use AP52\Core\EntityManager;
+use Doctrine\ORM\EntityRepository;
 
-class ConnectionRepository extends EntityManager
+class ConnectionRepository extends EntityRepository
 {
 
 }

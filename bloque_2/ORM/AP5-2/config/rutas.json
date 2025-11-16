@@ -2,5 +2,17 @@
   "/": {
     "controller": "MainController",
     "action": "main"
+  },
+  "/users": {
+    "controller": "UserController",
+    "action": "crud"
+  },
+  "/servers": {
+    "controller": "ServerController",
+    "action": "crud"
+  },
+  "/connections": {
+    "controller": "ConnectionController",
+    "action": "crud"
   }
 }

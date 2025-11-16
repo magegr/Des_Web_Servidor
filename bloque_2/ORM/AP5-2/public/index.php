@@ -3,9 +3,9 @@
 declare(strict_types=1);
 require_once "../vendor/autoload.php";
 
-use AP50\Core\Dispatcher;
-use AP50\Core\Request;
-use AP50\Core\RouteCollection;
+use AP52\Core\Dispatcher;
+use AP52\Core\Request;
+use AP52\Core\RouteCollection;
 use Dotenv\Dotenv;
 
 //Lo primero que debemos hacer es cargar las variables de entorno con el DotEnv del archivo .env

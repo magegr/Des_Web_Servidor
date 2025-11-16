@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/user/read">Listado de Usuarios</a>
+    <a href="/servers/read">Listado de Servidores</a>
+    <a href="/connections/read">Listado de Conexiones</a>
+</nav>
+<?php if (!empty($error)): ?>
+<p>
+    Este servidor esta en uso, no se puede eliminar
+</p>
+
+<a href="/servers/read">
+    <button type="button">
+        Volver a Servidores
+    </button>
+</a>
+<?php else:  ?>
+<form action="/servers/delete/<?php echo $server->getId()?>" method="post">
+    <h2>Eliminar el servidor con la id <?=$server->getId()?>?</h2>
+    <button type="submit" name="confirm" value="1">Sí</button>
+</form>
+<?php endif; ?>
+</body>
+</html>

@@ -2,9 +2,10 @@
 
 namespace AP52\Repository;
 
-use AP52\Core\EntityManager;
 
-class ServerRepository extends EntityManager
+use Doctrine\ORM\EntityRepository;
+
+class ServerRepository extends EntityRepository
 {
 
 }

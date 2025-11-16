@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/user/read">Listado de Usuarios</a>
+    <a href="/servers/read">Listado de Servidores</a>
+    <a href="/connections/read">Listado de Conexiones</a>
+</nav>
+<table>
+    <tr>
+        <th> ID SERVER</th>
+        <th> URL</th>
+        <th> COUNTRY SERVER</th>
+        <th> OBSERVATION</th>
+        <th>DOMAIN</th>
+        <th>IP</th>
+
+    </tr>
+    <?php foreach ($Servers as $info){ ?>
+    <tr>
+        <td><?=$info->getId()?></td>
+        <td><?=$info->getUrl()?></td>
+        <td><?=$info->getCountryServer()?></td>
+        <td><?=$info?->getObservation()?></td>
+        <td><?=$info->getDomain()?></td>
+        <td><?=$info?->getIp()?></td>
+        <td><a href="/servers/delete/<?php echo $info->getId()?>">Eliminar</a></td>
+        <td><a href="/servers/update/<?php echo $info->getId()?>">Actualizar</a></td>
+    </tr>
+    <?php } ?>
+</table>
+<p><a href="/servers/create">➕ Crear Nuevo Servidor</a></p>
+</body>
+</html>
