@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <a href="/">Inicio</a>
+    <a href="/clientes">Clientes</a>
+    <a href="/pedidos">Pedidos</a>
+    <a href="/productos">Productos</a>
+</nav>
+<?php if (!empty($error)): ?>
+<p>
+    Este producto está siendo utilizado en uno o más detalles de pedidos.
+    Para eliminarlo, primero debe eliminar o modificar los pedidos que lo referencian.
+</p>
+
+<a href="/productos">
+    <button type="button">
+        Volver a Productos
+    </button>
+</a>
+<?php else:  ?>
+<form action="/producto/delete/<?php echo $products->getId()?>" method="post">
+    <h2>Eliminar el producto con id <?=$products->getId()?>?</h2>
+    <button type="submit" name="confirm" value="1">Sí</button>
+</form>
+<?php endif; ?>
+</body>
+</html>

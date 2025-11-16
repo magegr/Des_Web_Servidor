@@ -31,15 +31,17 @@
     <tr>
         <td><?=$product->getId()?></td>
         <td>
-            <?php foreach ($product->getDetails() as $detail){ ?> //Lo hacemos asi porque viene de una coleccion y esta
-            en lo de findall
+            <?php foreach ($product->getDetails() as $detail){ ?>
+            <!--Lo hacemos asi porque viene de una coleccion y esta en lo de findall-->
             <?=$detail->getId()?>
             <?php } ?>
         </td>
         <td><?=$product->getDescription()?></td>
-
+        <td><a href="/producto/delete/<?php echo $product->getId()?>">Eliminar</a></td>
+        <td><a href="/producto/update/">Actualizar</a></td>
     </tr>
     <?php } ?>
 </table>
+<p><a href="/producto/create">➕ Crear un nuevo pedido</a></p>
 </body>
 </html>

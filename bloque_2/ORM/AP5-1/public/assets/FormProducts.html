@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>crear o actualizar</title>
+</head>
+<body>
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/clientes">Clientes</a> |
+    <a href="/pedidos">Pedidos</a> |
+    <a href="/productos">Productos</a>
+</nav>
+<form action="<?php echo $update ? '/producto/update/' . $product->getId() : '/producto/create' ?>" method="POST">
+    <!--Depende de si es true o false me saca el primer parametro o el segundo-->
+    <?php if(!$update): ?> <!--Si es false es create-->
+    <label for="id">ID Producto:</label><br>
+    <input type="number" name="id" id="id" required min="1"><br><br>
+    <?php else: ?>
+    <label>ID Producto:</label><br>
+    <strong><?php echo $product->getId() ?></strong> (no modificable)<br><br>
+    <?php endif; ?>
+
+    <label for="description">Descripción:</label><br>
+    <input type="text" name="description" id="description"
+           value="<?php echo $update ? htmlspecialchars($product->getDescription()) : '' ?>"
+           required maxlength="30" size="50"><br><br>
+
+    <button type="submit" name="submit" value="1"><?php echo $update ? 'Actualizar' : 'Crear' ?> Producto</button>
+    <!--Igual que arriba-->
+    <?php if(!$update): ?>
+    <button type="reset">Limpiar</button>
+    <?php endif; ?>
+    <a href="/productos">
+        <button type="button">Cancelar</button>
+    </a>
+</form>
+</body>
+</html>
