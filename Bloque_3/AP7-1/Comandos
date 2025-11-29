@@ -1,0 +1,5 @@
+ docker exec -it servidor_php  /bin/bash ->
+ cd proyecto
+ symfony serve --allow-all-ip -> hace que funcione
+ php bin/console make:controller NewController -> me crea el controlador
+ php bin/console debug:router -> aun no se
