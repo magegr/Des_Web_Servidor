@@ -5,6 +5,7 @@ namespace AP52\Controllers;
 use AP52\Core\EntityManager;
 use AP52\Entity\user;
 use AP52\Repository\UserRepository;
+use AP52\Views\DeleteUserView;
 use AP52\Views\FormUserView;
 use AP52\Views\UserView;
 
@@ -51,23 +52,33 @@ class UserController
         $view->render($users);
     }
 
-    public function create(): void
+    private function create(): void
     {
         if (isset($_POST['submit'])) {
             // Validar campos requeridos
-            if (!isset($_POST['url'], $_POST['country_server'], $_POST['domain']) ||
-                empty($_POST['url']) || empty($_POST['country_server']) ||
-                empty($_POST['domain'])) {
+            if (!isset($_POST['username'], $_POST['name'], $_POST['first_subname'],
+                    $_POST['country'], $_POST['email']) ||
+                empty($_POST['username']) || empty($_POST['name']) ||
+                empty($_POST['first_subname']) || empty($_POST['country']) ||
+                empty($_POST['email'])) {
                 $this->noRuta();
                 return;
             }
 
-            $User = new User();
-
-            $server->setIp($_POST['ip'] ?? null);
+            $user = new User();
+            $user->setUsername($_POST['username']);
+            $user->setName($_POST['name']);
+            $user->setFirstSubname($_POST['first_subname']);
+            $user->setSecondSubname($_POST['second_subname'] ?? null);
+            $user->setAddress($_POST['address'] ?? null);
+            $user->setTelephone($_POST['telephone'] ?? null);
+            $user->setCity($_POST['city'] ?? null);
+            $user->setCountry($_POST['country']);
+            $user->setObservation($_POST['observation'] ?? null);
+            $user->setEmail($_POST['email']);
 
             $em = $this->entityManager->getEntityManager();
-            $em->persist($User);
+            $em->persist($user);
             $em->flush();
 
             $this->list();
@@ -77,29 +88,36 @@ class UserController
         }
     }
 
-    public function update($id): void
+    private function update(?string $id): void
     {
-        $serverId = intval($id);
-        $server = $this->repository->find($serverId);
+        $userId = intval($id);
+        $user = $this->repository->find($userId);
 
-        if (!$server) {
+        if (!$user) {
             $this->noRuta();
             return;
         }
 
         if (isset($_POST['submit'])) {
-            if (!isset($_POST['url'], $_POST['country_server'], $_POST['domain']) ||
-                empty($_POST['url']) || empty($_POST['country_server']) ||
-                empty($_POST['domain'])) {
+            if (!isset($_POST['username'], $_POST['name'], $_POST['first_subname'],
+                    $_POST['country'], $_POST['email']) ||
+                empty($_POST['username']) || empty($_POST['name']) ||
+                empty($_POST['first_subname']) || empty($_POST['country']) ||
+                empty($_POST['email'])) {
                 $this->noRuta();
                 return;
             }
 
-            $server->setUrl($_POST['url']);
-            $server->setCountryServer($_POST['country_server']);
-            $server->setObservation($_POST['observation'] ?? null);
-            $server->setDomain($_POST['domain']);
-            $server->setIp($_POST['ip'] ?? null);
+            $user->setUsername($_POST['username']);
+            $user->setName($_POST['name']);
+            $user->setFirstSubname($_POST['first_subname']);
+            $user->setSecondSubname($_POST['second_subname'] ?? null);
+            $user->setAddress($_POST['address'] ?? null);
+            $user->setTelephone($_POST['telephone'] ?? null);
+            $user->setCity($_POST['city'] ?? null);
+            $user->setCountry($_POST['country']);
+            $user->setObservation($_POST['observation'] ?? null);
+            $user->setEmail($_POST['email']);
 
             $em = $this->entityManager->getEntityManager();
             $em->flush();
@@ -107,11 +125,12 @@ class UserController
             $this->list();
         } else {
             $view = new FormUserView();
-            $view->render(true, $server);
+            $view->render(true, $user);
         }
     }
 
-    public function delete($id): void
+
+    public function delete(?string $id): void
     {
         $Id = intval($id);
         $User = $this->repository->find($Id);

@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
+<nav>
+    <a href="/">Inicio</a>
+    <a href="/users/read">Usuarios</a>
+    <a href="/servers/read">Servidores</a>
+    <a href="/connections/read">Conexiones</a>
+</nav>
+<p>¿Está seguro que desea eliminar el siguiente usuario?</p>
+<p><strong>Username:</strong> <?php echo htmlspecialchars($user->getUsername()) ?></p>
+<p><strong>Nombre:</strong> <?php echo htmlspecialchars($user->getName()) ?> <?php echo htmlspecialchars($user->
+    getFirstSubname()) ?></p>
+<p><strong>Email:</strong> <?php echo htmlspecialchars($user->getEmail()) ?></p>
+<form action="/users/delete/<?php echo $user->getId() ?>" method="POST">
+    <button type="submit" name="confirm" value="1">
+        Sí, Eliminar
+    </button>
+</form>
 
+<a href="/users/read">
+    <button type="button">
+        No, Cancelar
+    </button>
+</a>
 </body>
 </html>
