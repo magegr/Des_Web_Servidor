@@ -1,0 +1,20 @@
+ docker exec -it servidor_php  /bin/bash ->
+ cd proyecto
+ symfony serve --allow-all-ip -> hace que funcione en el navegador
+ php bin/console make:controller NewController(cambiar el nombre a placer) -> me crea el controlador
+ php bin/console debug:router -> aun no se
+ php bin/console make:entity -> crear una entidad , la carpeta entity tiene que estar creada sno dara error
+ Primero tiene que estar creada la entidad para pode crear la base de datos
+ lo de database_url se tiene que copiar en lo de .env
+  DATABASE_URL="mysql://_user_:_pass_@_ipaddress_/_dbname_" -> son las credenciales para poder entrar
+  DATABASE_URL="mysql://root:root@mariadb-server/tienda_online?serverVersion=16&charset=utf8" aqui le decimos el nombre de a base de datos
+  php bin/console doctrine:database:create -> Para crear la base de datos
+  Ahora lo que tengo que hacer es migrar para hacer las tablas y tenemos que hacer estas 3 cosas
+  php bin/console make:migration
+si me da error hacer esto php bin/console doctrine:migrations:sync-metadata-storage
+si con esto sigue sin funcionar entonces  php bin/console doctrine:database:drop --force
+  php bin/console doctrine:migrations:migrate
+
+  php bin/console doctrine:schema:update
+
+   php bin/console make:crud Entidad -> Pra hacer el crud , hay que cambiar lo de entidad por el nombre de nuestra entidad
