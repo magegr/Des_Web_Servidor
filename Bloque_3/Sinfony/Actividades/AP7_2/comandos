@@ -1,0 +1,11 @@
+1- symfony new project_name --version="7.4.x" --webapp --no-git -> Crear un nuevo proyecto
+2- Ponemos la carpeta vendor y la carpeta var en excluir y añadimos en el yam de docker
+3- php bin/console make:controller NewController(cambiar el nombre a placer) -> Crea un controller y un template
+4- php bin/console make:entity -> crear una entidad y para crear las relaciones cuando creamos una a propiedad ponemos que es de tipo relacion
+5- DATABASE_URL="mysql://_user_:_pass_@_ipaddress_/_dbname_"
+   DATABASE_URL="mysql://root:root@mariadb-server/Universidad?serverVersion=16&charset=utf8"
+6- php bin/console make:migration
+7- php bin/console doctrine:migrations:migrate
+8- php bin/console make:crud Entidad
+nota si no hemos entrado tenemos que -> docker exec -it servidor_php  /bin/bash
+9-symfony serve --allow-all-ip -> hace que funcione en el navegador
