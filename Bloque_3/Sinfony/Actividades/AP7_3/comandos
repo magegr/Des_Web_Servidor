@@ -1,0 +1,14 @@
+creamos el proyecto
+Nos metemos directamente en el ap lo que sea no hace falta meternos en el docker
+para crear la base de datos necesitamos el docker encendido
+DATABASE_URL="mysql://root:root@mariadb-server/tienda_online?serverVersion=16&charset=utf8"
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+hacemos el crud php bin/console make:crud Entidad
+y para comprobar symfony serve para iniciar el programa
+para verlo en el navegador ->  http://127.0.0.1:8000/
+NOTA MUY IMPORTANTE !!!!!!!!
+PARA QUE SE MUESTREN LAS COSAS TIENE QUE ESTAR EL DOCKER ENCENDIDO
+para traducir vamos a ProductType y hacemos ->add('name', TextType::class, ['label' => 'Nombre'])
+Para que el fondo sea rojo cuando la fecha sea mas antigua a 2025
+ponemos un if en el twig y en el controlador le pasamos la fecha
