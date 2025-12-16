@@ -1,0 +1,25 @@
+1 creamos el proyecto con  -> symfony new AP7_4 --version="7.4.x" --webapp --no-git tenemos que tener el docker encendido para la base de datos
+2 abrimos el proyecto por separado
+3 creamos el entity -> php bin/console make:entity
+4 nos vamos al archivo .env y cambiamos el DATABASE_URL="mysql://root:root@127.0.0.1:3307/[nombre_de_la_base_de_datos]?serverVersion=16&charset=utf8"
+5 creamos la base de datos -> php bin/console doctrine:database:creat
+6 hacemos la migracion -> php bin/console make:migration
+7 php bin/console doctrine:migrations:migrate
+NOTA !!! LAs migraciones las podemos hacer con el comando -> php bin/console doctrine:schema:update --dump-sql --force
+8 hacemos el crud de Player ->  php bin/console make:crud Player -> tenemos que poner el nombre de la entidad
+9 PAra poner lo de traducir entonces tenemos que ir a los formularios -> ->add('name', TextType::class, ['label' => 'Nombre',]) usamos
+  lo del TextType::class.....
+10 Para cambiar el tipo de campo del formulario entonces tenemos que Cambiar lo de TextType por lo que queramos
+    EJEMPLO : https://symfony.com/doc/current/forms.html#form-types
+                RangeType::class,
+                ChoiceType::class, ['label' => 'Equipos disponibles',
+                'choices' => [
+                'pepe' => 'Pepe',
+                'Sara'=>'Sara',
+                ],
+                DateType::class, ['label' => 'Fecha de nacimiento', 'widget' => 'single_text', 'format' => 'yyyy-MM-dd'])
+    NOTA : Al añadir los tipo de cosas , asegurarse de que es el de synfony
+
+11 Validar los campos
+
+
