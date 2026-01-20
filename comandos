@@ -1,0 +1,26 @@
+ el bruno ya lo tengo creado
+ 1 - symfony new [nombre que queramos] --webapp
+ 2 - Nos vamos al .env
+ 3 - Modificamos el fichero -> DATABASE_URL="mysql://root:root@127.0.0.1:3307/api?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+ 4 - creamos la base de datos -> php bin/console doctrine:database:create
+ 4.1 creamos la conexion lo primero en la zona de la derecha y encendemos el docker puerto 3307
+ 5 - creamos el entity -> php bin/console make:Entity
+ 6 - Actualizamos la base de datos -> php bin/console doctrine:schema:update --dump-sql --force
+ 7 - Como no tenemos formularios no vamos a hacer un make:crud , en vez de eso todo el crud de la api lo vamos a hace en ApiPlayerCardController
+ 8 - Para eso usaremos el comando - > php bin/console make:controller ApiPlayerCardController
+ 9 - Aunque nos cree automaticamente cosas , nosotros no vamos a usarlo , entonces lo borramos todo y añadimos:
+
+    #[Route('/api/PlayerCard' , name: 'api_PlayerCard_')]
+    class ApiPlayerCardController extends AbstractController
+    {
+
+    }
+
+ 10 - Hacer el crud
+ 11 - Instalar API Platform?? -> composer require api -> Preguntar a lluis
+
+ Nos vamos a bruno
+
+ 1 - creamos una coleccion
+ 2 - nos creamos la carpeta players
+ 3 - nos creamos los metodos en las url hay que poner lo que aparece en el navegador.
