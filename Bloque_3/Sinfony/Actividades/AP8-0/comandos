@@ -1,0 +1,49 @@
+creamos proyecto
+creamos conexion 3307 porque se conecta al docker
+creamos la base de datos , cambiamos el .var -> DATABASE_URL="mysql://root:root@127.0.0.1:3307/AP80?serverVersion=16&charset=utf8"
+creamos el main controller ->  php bin/console make:controller MainController
+creamos el user  ->  php bin/console make:User todo por defecto
+actualizamos ->  php bin/console doctrine:schema:update --dump-sql --forc
+Para verificar el email -> esto no
+para crear un registro de email -> php bin/console make:registration-form opciones -> yes no yes luego seleccionamos el 15
+tenemos que volver a actualizar la base de datos
+para crear un login -> php bin/console make:security:form-login todo por defecto
+me tengo que crear un controller para login ->  php bin/console make:controller Login
+config packages security.yaml tiene que estar -> en login_path tiene qye estar -> app_login y en el de bajo tambien
+para hacer logout tenemos que ....
+tenemos que modificar el controller login  (esta en las guias){
+
+añadimos esto
+
+public function index(AuthenticationUtils $authenticationUtils): Response
+      {
++         // get the login error if there is one
++         $error = $authenticationUtils->getLastAuthenticationError();
++
++         // last username entered by the user
++         $lastUsername = $authenticationUtils->getLastUsername();
++
+eliminamos
+
+public function index(): Response
+
+
+añadimos
+
+ 'last_username' => $lastUsername,
++             'error'         => $error,
+
+eliminamos
+
+ 'controller_name' => 'LoginController',
+
+ }
+
+
+e importamos la clase -> use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
+
+NOTA IMPORTANTE -> NO SE TIENE QUE EXCLUIR EL VAR Y EL VENDOR
+
+
+modificamos el login de template esta en la documentacion
